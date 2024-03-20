@@ -1,0 +1,6 @@
+Here we perform a BFS approach where we store each node along with the sum at the current node in a queue.
+
+When we traverse a leaf node then we check if the level of the current node is more or equal to the current max level discovered.
+
+If equal then we compare the current sum with the maxsum and update as needed.
+If more then we update both the maxlevel and mxsum to the currsum and the current level.

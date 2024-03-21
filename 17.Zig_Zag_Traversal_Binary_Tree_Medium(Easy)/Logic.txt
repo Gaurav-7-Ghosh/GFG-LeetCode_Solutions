@@ -1,0 +1,1 @@
+Here we use the queue to solve this. For every level of the tree we store the nodes in a queue. if it is straight order then we directly insert into our results vector otherwise we store the values in a temp vector and store its elements in reverse in the actual results vector.

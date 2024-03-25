@@ -1,0 +1,4 @@
+Here we simply perform a recursive permutation function forming all possible binary strings of size n beginning with
+"1" and then perform adding to the results vector if we check if it has atleast more or equal number of 1's as zeros.
+
+For the prefix part we keep a count of current no of 1's and 0's in the string and if at any time the no of 0's is greater we stop the recursive call and return.

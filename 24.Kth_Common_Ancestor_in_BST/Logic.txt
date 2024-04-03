@@ -1,0 +1,8 @@
+Here we use the property of BST in order to determine the Kth common ancestor for the two given nodes.
+
+we start traversing the the tree and as long as the root is not null and both nodes are either in the left or right sub-tree then we we keep traversing as they are all common ancestors keep updating a count variable in which we keep track of the common ancestors of the nodes.
+
+Once we reach a stage where both nodes are in different we break.
+
+Then we start again from root and as long as again and keep a another variable which keeps track of the current count. If count == total number of ancestors-k then we return the node otherwise we return -1.
+

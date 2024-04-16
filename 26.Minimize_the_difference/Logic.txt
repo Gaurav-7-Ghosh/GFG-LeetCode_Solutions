@@ -1,0 +1,63 @@
+Comprehensive Solution | Time: O(n) | Space: O(n)
+This appraoch can be best described as a range minimization algorithm using sliding window and prefix-suffix arrays. It combines elements of dynamic programming (in how it uses past computations via prefix and suffix arrays) with a greedy approach (minimizing the range in a linear scan).
+Intuition:
+
+Understand the Goal: You need to remove a part of the array (a subarray of length k) and make sure that the difference between the largest and smallest numbers left in the array is as small as possible.
+Divide to Conquer: Split the task into two parts:
+Before the part you're removing (prefix).
+After the part you're removing (suffix).
+
+Track Extremes Efficiently:
+
+For every position in the array from the start, keep track of the smallest and largest numbers seen so far. This helps you quickly know the extremes in any section of the array up to a certain point.
+Do the same from the end of the array back to the start. This way, for any point, you can quickly find out the smallest and largest numbers from that point to the end.
+
+Prepare for Quick Comparisons:
+
+Use the above "tracking" to prepare two sets of data:
+One that tells you the minimum and maximum from the start up to each point (prefix data).
+Another that tells you the minimum and maximum from each point to the end (suffix data).
+
+Simulate Removing Parts:
+
+Walk through the array and consider removing each possible subarray of length k. For each potential removal:
+Look at the data before the start of this subarray using your prefix data.
+Look at the data after the end of this subarray using your suffix data.
+
+Calculate and Compare:
+
+For each potential subarray removal, calculate the difference between the maximum and minimum values in the remaining parts of the array (combining prefix and suffix).
+Keep track of the smallest difference you find during these comparisons.
+Result: The smallest difference found from all these calculations gives you the desired result, which is the least possible difference between the maximum and minimum values in the array after removing a subarray of size k.
+
+Approach:
+Define Arrays for Tracking Extremes:
+
+Initialize two vectors of pairs, prefixMinMax and suffixMinMax, to store the minimum and maximum values calculated from the start and from the end of the array, respectively. Each element of these vectors will be a pair, where the first element is the minimum and the second is the maximum up to or from that index.
+
+Initialize the First and Last Elements:
+
+Set the first element of prefixMinMax and the last element of suffixMinMax using the first and last elements of the input array a. This serves as the base case for building up the rest of the values in these arrays.
+
+Fill Prefix and Suffix Arrays:
+
+Loop through the array from the second element to the end:
+For prefixMinMax, calculate the minimum and maximum up to each index i by comparing the current array value a[i] with the previous values stored in prefixMinMax[i-1].
+Similarly, fill the suffixMinMax starting from the second last element towards the start. Use a reverse index revIdx calculated as n - i - 1 to handle the positioning in the suffix array correctly.
+
+Prepare for Removal Scenarios:
+
+Initialize minDiff to INT_MAX to track the smallest difference encountered.
+Calculate Differences Post Removal:
+Iterate through each possible starting index i for the subarray of length k to be removed (from index 0 to n - k inclusive):
+
+Determine the minimum (minElem) and maximum (maxElem) of the elements remaining after removing the subarray:
+
+If removing from the start (i == 0), use the values from suffixMinMax[i + k].
+If removing ends exactly at the last element (i + k == n), use values from prefixMinMax[i - 1].
+Otherwise, combine the appropriate values from prefixMinMax and suffixMinMax to cover the segments before and after the removed subarray.
+Update minDiff by comparing it with the difference maxElem - minElem to track the minimum difference found.
+
+Return the Result:
+
+After completing the loop, minDiff will hold the minimum difference between the maximum and minimum of the remaining array elements after the best possible removal of a subarray of length k. Return this value.

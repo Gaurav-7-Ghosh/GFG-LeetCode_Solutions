@@ -1,0 +1,7 @@
+here we construct a recursion where we are looking to find the energy needed to reach step (n-1) [assuming 0 based indexing]
+
+So we can start with the base case where the enery required to reach step 0 from 0 is 0. 
+
+then we call recursively for one step jump and two step jump. Also we keep a check that for step -2 whether it is possible or not.
+
+https://www.youtube.com/watch?v=EgG3jsGoPvQ&t=56s

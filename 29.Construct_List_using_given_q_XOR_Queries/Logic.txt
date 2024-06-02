@@ -1,0 +1,20 @@
+Here for this problem the brute force approach is for every query element we can check whether it is to insert
+a new element in the vector or XOR all the values in the current results vector.
+
+Here we can see from the following example 
+
+{{0, 6}, {0, 3}, {0, 2}, {1, 4}, {1, 5}, {0,8} , {0,3}, {1,5}}
+
+
+      0  ,  6   ,  3  ,  2 ,  8  ,  3
+
+XOR   4     4      4     4
+
+XOR   5     5      5     5
+
+XOR   1     1      1     1    1     1
+
+
+Here we can see the last two elements only are XOR with 1. 
+
+So if we start traversing the query from right to left and keep a track of the total XOR value to be XOR with a element and then on each insertion we first XOR the value with the total XOR value before inserting then the solution comes down form O(n2) complexity to O(nlogn) complexity as we are applying the total XOR in one single operation.  

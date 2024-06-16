@@ -1,0 +1,7 @@
+Step 1: Using the sieve of eratosthenes we precompute the which values are prime from 1 to n
+
+Step 2: Then we traverse through 1 to n and checking if "i" and "n-i" are prime or not
+
+Step 3: we create two variables that store those values with -1 and then when both i and n-i are prime we replace those values with these
+
+Step 4: Since at the end of the loop the "i" prime we obtain then (n-i) will be the lowest value and if it is prime then this is the pair to be returned

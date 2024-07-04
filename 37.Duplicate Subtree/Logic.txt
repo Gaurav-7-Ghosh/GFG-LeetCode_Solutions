@@ -1,0 +1,34 @@
+Check for all the subtree from that root node
+Idea is that if we some how find the key for that root and its similar for another root then this is a duplicate subtree
+
+String key = root.data + "," + checkForIdenticalSubtree(root.left) + "," + checkForIdenticalSubtree(root.right);
+
+We will store this key in a map and count its occurence if this key is equal to  2 then this is a duplicate and we add that root node in our ans list
+
+If we found the similar key for another root node then it is a duplicate subtree
+
+
+ 1 2 3 4 N 2 4 N N 4 N N N
+
+For the above tree Keys in a map
+key1 => 1 , 2 4 , 3 2 4 4 
+key2 => 2 , 4 , ""
+key3 => 4 , "" ,""
+key4 => 3 , 2 4 , 4
+key5 => 2 , 4 , "" 
+key6 => 4 , "" , "" 
+
+As we clearly see that
+Key2 == Key4 means we can add root 2 in our ans list
+similarly Key3 == Key6 we will add root 4 in out ans list
+
+ 
+
+How map looks ?
+
+                  Keys         	                Frequency
+         1 , 2 4 , 3 2 4 4	                          1
+               2 , 4 , ""    	                          2
+               4 , "" ,""  	                          2
+               3 , 2 4 , 4	                          1
+

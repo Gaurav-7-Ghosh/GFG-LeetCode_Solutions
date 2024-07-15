@@ -1,0 +1,39 @@
+Intuition 
+The problem at hand is to find the smallest number that can be formed using d digits such that the sum of the digits equals s. The key challenge is to place the smallest possible digits at the higher place values (leftmost positions) to ensure the number is the smallest possible.
+
+Approach
+Initial Checks:
+
+If 9 * d < s, it is impossible to form such a number because the maximum sum with d digits (each being 9) is 9 * d. Hence, return -1 in this case.
+If d == 1, simply return s as the smallest number (since it's a single-digit number).
+
+
+Forming the Smallest Number:
+
+Start by subtracting 1 from s (this is to handle the smallest possible non-zero number).
+Initialize an empty string sb to build the number.
+Loop through d-1 digits from the rightmost side:
+If the remaining sum s is greater than or equal to 9, place a 9 at the current position.
+If the remaining sum s is less than 9, place the remaining s at the current position and set s to 0 (since all remaining positions will be filled with 0).
+After the loop, add back the 1 to s that was subtracted initially and place it in the leftmost position.
+Return the Result:
+
+Concatenate the leftmost digit and the rest of the digits stored in sb to get the final number.
+
+
+
+
+Dry Run
+Let's consider an example with s = 20 and d = 3:
+
+9 * d = 27 which is greater than 20, so we proceed.
+d is not 1, so we proceed.
+Subtract 1 from s to handle non-zero smallest possible number: s = 19.
+Initialize sb = "".
+Loop through d-1 times:
+First iteration (i = 0): s = 19, place 9 at the current position, s = 19 - 9 = 10, sb = "9".
+Second iteration (i = 1): s = 10, place 9 at the current position, s = 10 - 9 = 1, sb = "99".
+Add back the 1 to s, now s = 2.
+Concatenate 2 and sb: Result is "299".
+Time Complexity
+The time complexity of the approach is O(d) because the algorithm involves a single loop that runs d-1 times. Here, d is the number of digits.

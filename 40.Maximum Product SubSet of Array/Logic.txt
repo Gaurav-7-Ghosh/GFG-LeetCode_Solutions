@@ -1,0 +1,13 @@
+Approach 
+Initialize Variables:
+
+ans is initialized to 1, which will hold the product of the elements.
+mx is initialized to INT_MIN, which will hold the maximum negative number encountered in the array.
+Iterate Through the Array:
+
+For each element in the array, if the element is not 0, multiply it to ans and take modulo 1000000007.
+If the element is negative and greater than mx, update mx to this element.
+Handle Negative Product:
+
+After the loop, if the product (ans) is negative, divide ans by the maximum negative number mx to try to make the product positive or less negative.
+If the product is non-negative, simply return it.

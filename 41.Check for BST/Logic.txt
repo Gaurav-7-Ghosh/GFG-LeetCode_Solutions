@@ -1,0 +1,3 @@
+We create two variables in which store the left and right range of values in which the current node value must lie
+in order to satisfy the BST property.
+Initially they are set to maximum low and high values and as we traverse through the BST (pre-in-post){order does not matter}, we update the left and right values and check for the current node.

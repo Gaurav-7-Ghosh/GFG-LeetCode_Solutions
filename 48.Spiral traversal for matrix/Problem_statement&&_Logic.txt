@@ -1,0 +1,37 @@
+
+You are given a rectangular matrix, and your task is to return an array while traversing the matrix in spiral form.
+
+Examples:
+
+Input: matrix[][] = [[1, 2, 3, 4],
+                  [5, 6, 7, 8],
+                  [9, 10, 11, 12],
+                  [13, 14, 15,16]]
+Output: [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+
+
+
+
+
+Logic: 
+
+Initialize Boundaries:
+
+Define the boundaries of the matrix: up, down, left, and right. Initially, up is 0, down is the last row index (m - 1), left is 0, and right is the last column index (n - 1).
+Traverse the Matrix in Layers:
+
+The matrix is conceptualized as being divided into concentric layers. Each layer is traversed in a spiral order:
+Left to Right across the top boundary (up).
+Top to Bottom down the right boundary (right).
+Right to Left across the bottom boundary (down).
+Bottom to Top up the left boundary (left).
+Update Boundaries:
+
+After traversing a boundary, move inward by adjusting the respective boundary:
+Top boundary (up) is incremented after processing the top row.
+Right boundary (right) is decremented after processing the right column.
+Bottom boundary (down) is decremented after processing the bottom row.
+Left boundary (left) is incremented after processing the left column.
+Repeat:
+
+Continue the traversal while the updated boundaries still define a valid submatrix. The loop stops when the boundaries no longer define a valid region (i.e., up > down or left > right).

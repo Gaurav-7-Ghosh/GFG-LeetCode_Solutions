@@ -1,0 +1,8 @@
+Here we do we a simple two pointer approach starting from the left(index 0) for both strings
+
+we iterate over both strings checking for either a match or if we cyclic increment the character of string 1 and 
+then can match
+
+Termination condition is when either i or j loop ends
+
+Success if we have iterated over the entire second string which means we have been able to match

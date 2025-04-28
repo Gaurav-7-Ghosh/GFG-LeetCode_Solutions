@@ -1,0 +1,37 @@
+class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        # Algorithm: Slidig Window
+        total = 0        # sum of elements in the current window [left…right]
+        window = 0       # length of the current window
+        left = 0         # left boundary of our sliding window
+        count = 0        # total number of valid subarrays
+
+        for right in range(len(nums)):
+            # include the element at index `right`
+            total += nums[right]
+            window += 1
+
+            # shrink from the left until the score < k
+            # score = total * window
+            while total * window >= k:
+                total -= nums[left]
+                window -= 1
+                left += 1
+
+            # all subarrays ending at `right` with lengths 1…window are valid
+            count += window
+
+        return count
+
+
+According to the definition of array scores in the question, and given that nums is an array of positive integers, for a subarray [i,j], as the right endpoint j is fixed, the sum of the subarray decreases and its length shortens with the increase of the left endpoint i, so the score of the subarray monotonically decreases. If the score of the subarray [i,j] is less than k, since the score is monotonically decreasing, then the score of the subarray [p,j],i<p≤j is also less than k.
+
+Based on the above properties, we can use the sliding window method to solve the question. Starting from j=0, enumerate the right endpoint of the subarray and maintain a left endpoint i (initially set to 0). For each j:
+
+Expand window: Add nums[j] to the subarray sum corresponding to the current window total.
+
+Shrink window: If the score of the corresponding subarray in the current window, total×(j−i+1), is greater than or equal to k, it indicates that the subarray does not meet the requirements, and therefore, the left endpoint i needs to be moved to the right until the score is less than k.
+
+Count the number of subarrays: At this moment, the number of subarrays with j as the right endpoint and a score less than k is j−i+1, and it is accumulated into the final result res.
+
+After the enumeration, return the final result res.

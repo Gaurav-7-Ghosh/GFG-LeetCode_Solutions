@@ -1,0 +1,34 @@
+Intuition
+
+Find the maximum value in the array.
+
+Slide a window using two pointers (left, right).
+
+Count how many times the maximum appears inside the window.
+
+When count ≥ k (i.e., enough maximums inside window):
+
+Every subarray starting from left to right and beyond is valid.
+
+So, add (n - right) to the result.
+
+Move left to keep counting only minimal valid windows.
+
+Approach
+
+Identify the maximum value in the array nums.
+
+Initialize two pointers (left = 0, right = 0) and a counter to track occurrences of maxValue inside the window.
+
+Expand the window by moving right pointer and update the count of maxValue in the window.
+
+If the count of maxValue >= k, start moving the left pointer to shrink the window:
+
+For each valid window where count >= k, add (n - right) to the result.
+
+Continue until you've processed all possible windows.
+
+Complexity
+
+Time complexity : O(n)
+Space complexity : O(1)

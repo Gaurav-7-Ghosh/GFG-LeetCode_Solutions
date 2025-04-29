@@ -1,0 +1,30 @@
+Intuition
+
+It is a typical application of Floyd's Cycle Detection Algorithm using two pointers, slow and fast.
+First, detect if a cycle exists.
+If a cycle exists, then find the starting node of the cycle by moving one pointer to the head and moving both one step at a time.
+
+Approach
+
+Please Understand the approach first, then try it yourself and only then view the code.
+
+Steps Involved:
+
+Initialize two pointers slow and fast at the head.
+Move slow one step and fast two steps in each iteration.
+If there is a cycle, at some point slow == fast inside the loop. Otherwise, if fast becomes null, there is no cycle.
+If no cycle is found, return null.
+If a cycle is found:
+5.1 Reset one pointer (fast) back to head.
+5.2 Move both pointers one step at a time.
+5.3 The node where they meet again is the start of the cycle.
+Return the node where they meet. Either slow or fast as both are pointing at start of the loop itself.
+Complexity
+
+Time complexity: O(n)
+where n is the number of nodes.
+(First to detect cycle: O(n), then to find starting node: another O(n) in worst case.)
+
+Space complexity: O(1)
+No extra space is used.
+

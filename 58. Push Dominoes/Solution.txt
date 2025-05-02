@@ -1,0 +1,37 @@
+Using Two Pointers
+
+The approach here is to compute this string in the form on spans or chains of .'s / chain of still dominoes.
+We use two pointers curr and prev
+curr → stores the index of the next L or R
+prev → stores the index of the last L or R
+
+We use a variable called span to compute the length of the current chain of still dominoes.
+So we only need to check for 3 cases here :
+
+
+1️⃣ Case 1 → L...L or R...R
+
+The case where the next non still domino is a left and the last non still domino is a left as well. (same for both being right)
+In this case our current domino will simply move to the left (or right if both are right) as it has no other options.
+So if a domino is placed between two dominoes, both moving in same direction. Then the domino moves in that direction as well.
+
+
+ Case 2 → L...R
+
+As both non dot dominoes at curr and prev move in opposite directions so no change will be seen in the current chain of dominoes.
+in this case with both the extreme dominoes falling into their respective directions and the chain of dominoes in between staying still.
+As the previous is falling to the left and current is falling to the right the ones in the middle stay still
+
+
+Case 3 -> R..L 
+As both the dominoes in curr and prev move in the same direction we need to check for the distance between the prev and curr from the domino at centre / middle.
+If the domino at the centre has equal distance from both curr and prev then it does not fall in any direction.
+Else it falls in whatever direction is closest to it (curr or prev).
+So we can simply consider for this case that :
+For R...L,
+The left half of dominoes fall towards right
+The right half of dominoes fall towards left
+If the middle domino has same distance from prev and curr it does not fall.
+
+🕒 Time Complexity → O(n)
+💾 Space Complexity → O(n)

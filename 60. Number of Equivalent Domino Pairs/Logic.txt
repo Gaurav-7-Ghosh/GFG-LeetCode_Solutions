@@ -1,0 +1,12 @@
+Here since we only care that the dominos numbers match either as a==c or a==d then we can normalize the 
+dominoes
+Treating [1,2] and [2,1] as [1,2] and [1,2]
+
+Also then since in essence we are checking whether the same pair of numbers are there in the domino we
+can normalize them to the form of [a,b] where a<=b and then normalize them. 
+
+We initialize a count to keep track of the occurences of the unique normalized values. 
+Then we iterate through the array and for each occurence we add them to the result and then increment iterate
+it's occurence count. 
+This is done so that for the first occurence result does not change and only from the second occurence we 
+add 1 to the result

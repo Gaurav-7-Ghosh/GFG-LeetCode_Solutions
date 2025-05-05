@@ -1,0 +1,32 @@
+💡 Intuition
+
+We need to count how many ways to tile a 2×n board using:
+
+Dominoes (1×2 or 2×1),
+Trominoes (L-shaped tiles covering 3 squares).
+This is a Dynamic Programming problem where the state depends on the previous 3 states.
+
+✅ Approach (Bottom-Up DP)
+
+Let dp[i] = number of ways to tile a 2×i board.
+
+Base cases:
+
+dp[0] = 1: empty board
+dp[1] = 1: one vertical domino
+dp[2] = 2: two vertical or two horizontal dominoes
+dp[3] = 5: manually count (3 domino-only options + 2 with trominoes)
+Transition formula:
+
+dp[n]=2⋅dp[n−1]+dp[n−3]
+
+Why?
+
+Extend dp[n-1] by a vertical domino in 2 ways (to cover extra tromino formations).
+Add new combinations from dp[n-3] due to L-shaped tromino patterns.
+Take modulo 1e9 + 7 to handle large values.
+
+🧮 Complexity
+
+Time complexity: O(n)
+Space complexity: O(n)

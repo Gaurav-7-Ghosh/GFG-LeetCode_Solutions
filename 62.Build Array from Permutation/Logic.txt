@@ -1,0 +1,19 @@
+Approach 2 → Using O(1) Space
+
+Inorder to solve this problem using O(1) space, we need to modify the elements in our given vector, that is, we cannot use any other data structures.
+So, we also need to build the result array, while preserving the values given to us as input.
+
+We can multiply each number with a base let's say x.
+So whenever we need to fetch the original or initial value, we can just divide by x.
+So the approach here is that we multiply all the numbers by x and keep updating positions.
+Using this, we don't lose our original values of the numbers and can restore them later as well.
+
+As we'd multiplied by x earlier, we can now simply divide by x to get back our original values that we had updated.
+We now use x / 1024 and get the original value of x back.
+
+
+As the constraints are 1 <= nums.length <= 1000, therefore we can chose any number larger than 1000.
+The constraints for selecting the base here are base >= 1000.
+Picking a base < 1000 would give you wrong answer verdict.
+🕒 Time Complexity → O(n)
+💾 Space Complexity → O(1)

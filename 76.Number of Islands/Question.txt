@@ -1,0 +1,42 @@
+200. Number of Islands
+
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+ 
+
+Example 1:
+
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+Example 2:
+
+Input: grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+Output: 3
+ 
+
+Constraints:
+
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 300
+grid[i][j] is '0' or '1'.
+
+
+
+
+LOGIC: Traverse through the 2D array and at the point of hitting a island("1" value in the grid) where run a BFS search around it 
+to identify all the surrounding "1" which consitute a single island. We mark all of those as visited and then when we return to
+our traversal function we increase the count of islands by 1. Now on continuing the traversal since we have marked all the surrounding
+"1" as visited we will not check them anymore

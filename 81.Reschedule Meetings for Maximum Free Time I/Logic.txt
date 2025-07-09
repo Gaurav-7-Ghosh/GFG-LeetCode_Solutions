@@ -1,0 +1,14 @@
+Here the key thing to notice is the given meetings timings are non-overlapping
+
+So when we look at the timeline from o to eventTime we can see there are say n meetings and therefore there will be n+1 gap slots
+One slot before the first meeting, one after the last meeting and n-1 slots meeting the n-Meetings
+
+Also to be noticed is that in the timeline we can either shift each meeting to its left or right depending on gap slots
+Logically it would be beneficial if we could move consequtive meetings in order to maximize a single gap slot
+
+To convert this into a sliding window problem, we count the gaps in the eventTime
+
+Intuition
+Taking a window of k+1 (Since at most we can reschedule k meetings we can get k+1 gap slots together by slotting the k meetings one after the another)
+
+So we perform a max of k+1 gap slots over the eventTime 

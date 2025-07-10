@@ -1,0 +1,43 @@
+🔍 Intuition
+
+We are given a string s and a part. Our goal is to remove all occurrences of the part string from s.
+
+We notice that every time we remove part from s, a new occurrence may appear due to the shifting of characters, so we need to repeatedly search and remove until part no longer exists in s.
+
+🎯 Key Insight:
+
+Keep removing the first occurrence of part from s until no more such substring exists.
+
+🧠 Approach
+
+Use a loop that continues as long as s.find(part) returns a valid index.
+On each iteration:
+Find the first index where part occurs.
+Use erase() to remove part from s at that index.
+Once part is no longer found, return the updated s.
+
+
+📌 Diagram: Step-by-step Example
+
+Let’s say:
+
+s = "daabcbaabcbc"
+part = "abc"
+✅ We visualize how the string changes in each step:
+Initial string:
+daabcbaabcbc
+  ^^^
+
+1st removal (abc at index 2):
+dabaabcbc
+    ^^^
+
+2nd removal (abc at index 4):
+dabcbc
+   ^^^
+
+3rd removal (abc at index 3):
+dbc
+
+Final string:
+dbc

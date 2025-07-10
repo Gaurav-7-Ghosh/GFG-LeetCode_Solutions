@@ -1,0 +1,8 @@
+Look at Q81.
+
+Here the question is quite similar apart from the fact that we can also re-arrange meetings.
+
+So apart from the logic in Q81 where we can either move meeting to its left or right, 
+we can also remove that meeting from its slot and take freeTime = freeTimeonLeft + meetingTime + freeTimeonRight if any other gap is of the length of the removed meeting. 
+
+Then from both these cases we return the max.

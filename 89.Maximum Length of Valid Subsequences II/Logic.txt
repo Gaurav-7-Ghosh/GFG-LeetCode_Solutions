@@ -1,0 +1,18 @@
+Here one thing to notice is the pattern that needs to be statisifed for it be a part of a valid subsequence.
+Lets say [a,b,c] are three such numbers that satisfy the rule
+
+So we can say
+    (a+b)%k == (b+c)%k
+    => a%k = c%k (Removing b from both sides)
+
+This leads us to see that every 1st, 3rd, 5th number will have the same remainder when dividing by k and every 2nd, 4th and 6th number will have the same remainder.
+
+Hence any pattern will either have all numbers having same remainders when dividing with k or alternating remainders. 
+
+since when dividing by k we only get 0 to k-1 remainders we create dp[prev][curr] which stores the largest length of a valid subsequence where the second last element has A
+remainder of prev and the last element has remainder curr. 
+
+for the current number we find the remainder and then to satisfy the pattern we can say that longest subsequence with second last element having remainder prev and last elemenet
+having remainder curr is the largest subsequence where second last element having remainder curr and last elemenet
+having remainder prev + 1. 
+

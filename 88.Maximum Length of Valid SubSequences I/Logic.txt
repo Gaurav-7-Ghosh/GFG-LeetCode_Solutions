@@ -1,0 +1,6 @@
+here the main trick is noticing that for the subsequence to be valid the remainder of the sum of consequtive elements in that subsequence must be the same when dividing by
+2. Now we know that dividing any number by 2 gives only two possible remainders. 0 or 1. So we can intuitively see that the subsequence can only consist of all odd 
+numbers or all even numbers or a interchaning odd and even numbers. So we find the longest subsequence of all odd numbers, all even numbers and subsequences of interchanging 
+odd and even, one starting from odd and one from even.
+
+then we just return the maximum of them 4.
